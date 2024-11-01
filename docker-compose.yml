@@ -1,0 +1,22 @@
+# docker-compose.yml
+
+version: '3'
+services:
+  frontend:
+    build: D:\\MLOps\\Full-Stack-Microservices-Application-on-Minikube\\frontend
+    ports:
+      - "3000:80"
+  
+  backend:
+    build: D:\\MLOps\\Full-Stack-Microservices-Application-on-Minikube\\backend
+    ports:
+      - "5000:5000"
+  
+  database:
+    build: ./database
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: auth_db
+    ports:
+      - "5432:5432"
